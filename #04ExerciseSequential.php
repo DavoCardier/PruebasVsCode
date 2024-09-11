@@ -22,25 +22,34 @@ y el porcentaje de descuento,
 y luego muestre el total a pagar usando las funciones anteriores.*/
 
 
-function calcularImpuesto($precioBase, $elImpuesto): float
+function calculatePercentage($basePrice, $theTax): float
 {  
-   return $precioBase * ($elImpuesto / 100);
+   return $basePrice * ($theTax / 100);
  
 }
 
-function calcularDescuento($precioBase, $elDescuento): float
+function calculateDiscount($basePrice, $theDiscount): float
 {  
-    return $precioBase * ($elDescuento / 100 );
+    return $basePrice * ($theDiscount / 100 );
     
 }
 
-function calcularTotal($precioBase, $elImpuesto, $elDescuento): float
+function calculateTotal($basePrice, $theTax, $theDiscount): float
 {
-    $impuesto = calcularImpuesto($precioBase, $elImpuesto);
-    $descuento = calcularDescuento($precioBase, $elDescuento);
-    return $precioBase - $descuento + $impuesto;
+    $tax = calculatePercentage($basePrice, $theTax);
+    $discount = calculateDiscount($basePrice, $theDiscount);
+    return $basePrice - $discount + $tax;
 }
 
-echo "El total a pagar es de: " . calcularTotal(12.2,15.5,15.2) . " BsD";
+echo "El total a pagar es de: " . calculateTotal(12.2,15.5,15.2) . " BsD";
+
+/*Crea una función principal que pida al usuario el precio base, Esto no lo realice ya que las referencias
+encontre en mi investigacion usaban funciones que aun no hemos trabajado, sin emabrgo aqui puedo anexar un 
+codigo de referencia que encontre
+
+Para pregunatar al usuario usaban algo asi... floatval(trim(fgets(STDIN))) 
+
+
+*/
 
 ?>
