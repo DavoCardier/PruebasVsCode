@@ -1,26 +1,8 @@
 <?php
 ini_set('declare(strict_types', '1'); 
-//Colocar para tener buenas practicas
+#         ERRORES QUE TUVE QUE CORREGIR EN LA PRACTICA 
 
-/*Ejercicio Secuencial 4: Cálculo de impuestos y descuentos
-
-Desarrolla un programa que calcule el total a pagar por un producto, aplicando impuestos y descuentos. 
-Todas las funciones deben trabajar juntas para hacer el cálculo completo.
-
-1.-Función calcularImpuesto: Recibe un precio base y un porcentaje de impuesto, 
-y devuelve el precio con el impuesto aplicado.
-
-2.-Función calcularDescuento: Recibe un precio base y un porcentaje de descuento,
- y devuelve el precio con el descuento aplicado.
-
-3.-Función calcularTotal: Recibe el precio base, el porcentaje de impuesto
- y el porcentaje de descuento, llama a las funciones anteriores,
- y devuelve el precio total a pagar.
-
-Crea una función principal que pida al usuario el precio base, el porcentaje de impuesto 
-y el porcentaje de descuento, 
-y luego muestre el total a pagar usando las funciones anteriores.*/
-
+#El principal, todo lo tenia en español. 
 
 function calcularImpuesto($precioBase, $elImpuesto): float
 {  
@@ -30,19 +12,24 @@ function calcularImpuesto($precioBase, $elImpuesto): float
  
 }
 
-/*function calcularDescuento($precioBase, $elDescuento): float
-{  
-    return $precioBase * ($elDescuento / 100 );
+function calcularDescuento($precioBase, $elDescuento): float
+{  /* Cuando realice (Function calcularTotal), tuve que unificar y simplificar las lineas 15-16
+    lo mismo con la linea 9-10 */
+    $totalDescuento = $precioBase * ($elDescuento / 100); 
+    return $precioBase - $totalDescuento;
     
 }
 
-function calcularTotal($precioBase, $elImpuesto, $elDescuento): float
+function calcularTotal($precioBase, $impuesto, $descuento): float 
+/*Tenia un error tonto con una Variable como se puede ver en la linea 20, al momento de llamarlas
+estas lineas venian sin Valor, ya que el valor asignado en la linea de (echo (CalcularImpuesto(x, x, x))); 
+no los tomaba en cuento y no los subia las otras funciones*/
 {
     $impuesto = calcularImpuesto($precioBase, $elImpuesto);
     $descuento = calcularDescuento($precioBase, $elDescuento);
     return $precioBase - $descuento + $impuesto;
 }
-*/
+
 echo "El total a pagar es de: " . calcularImpuesto(12.2,15.5,15.2) . " BsD";
 
 ?>
